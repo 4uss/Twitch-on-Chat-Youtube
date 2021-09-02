@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>XI</title>
+    <meta name="author" content="xanax">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <script type="text/javascript" src="assets/js/websocket/socket.js"></script>
+</head>
+<body style="min-width: 400px;max-width: 400px">
+    <div class="container text-start">
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <h5 class="d-inline">Twitch Chat on YouTube</h5><img class="img-fluid bb-logo mt-2" src="assets/img/logo.png" bb-type="f-right">
+                <p>Ustawienia powiadomień o streamach</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="bb-option m-2" id="xayoo">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/twitch.png"><span class="bb__channel">&nbsp;Xayoo_</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2" id="popo">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/twitch.png"><span class="bb__channel">&nbsp;Popo</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2" id="japczan">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/twitch.png"><span class="bb__channel">&nbsp;Japczan</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2" id="lukisteve">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/twitch.png"><span class="bb__channel">&nbsp;LukiSteve</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2" id="vysotzky">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/twitch.png"><span class="bb__channel">&nbsp;Vysotzky</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2" id="holak">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/twitch.png"><span class="bb__channel">&nbsp;holak1337</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2" id="aki">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/twitch.png"><span class="bb__channel">&nbsp;Aki_997</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2" id="suchar">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/twitch.png"><span class="bb__channel">&nbsp;MokrySuchar</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2" id="matixoxoo">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/twitch.png"><span class="bb__channel">&nbsp;matixoxoo_</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2" id="dejvid">
+                    <div><img class="bb-channel-icon img-fluid" src="assets/img/youtube.png"><span class="bb__channel">&nbsp;dejvid tibijski zadymiarz</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb__xi m-2">
+                    <div class="text-center">
+                        <div class="bb__left"><img class="bb-channel-icon img-fluid" src="assets/img/b.png"></div><span>Xayoo Industries</span>
+                        <div class="bb__right"><img class="bb-channel-icon img-fluid" src="assets/img/b.png"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-2">
+                <div class="bb__hr__position">
+                    <div class="bb__hr"></div>
+                </div>
+                <div class="text-center bb__topka p-1 mt-3">
+                    <h5 class="bb-no-p-m">Ogólne ustawienia</h5>
+                </div>
+            </div>
+            <div class="col">
+                <div class="bb-option m-2 alerts">
+                    <div><span class="bb__channel fw-bold">Alerty (powiadomienie)</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+                <div class="bb-option m-2 alerts__audio" style="background-color: rgba(0,0,0,0.29);">
+                    <div><span class="bb__channel">Alerty (dzwięk) - Wybór dzwonka</span></div>
+                    <div class="bb__switch"><span class="bb__buton" bb-type="button__off">Off</span><span class="m-1"></span><span class="bb__buton_active" bb-type="button__on">On</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mt-2">
+                <div class="bb__hr__position">
+                    <div class="bb__hr"></div>
+                </div>
+                <div class="text-center bb__topka p-1 mt-3">
+                    <h5 class="bb-no-p-m">Audio ustawienia</h5>
+                </div>
+            </div>
+            <div class="col">
+                <div class="bb-option m-2">
+                    <p>Aktualny: <b class="bb__current__alarm"></b></p>
+                    <div class="bb__hr__position">
+                        <div class="bb__hr"></div>
+                    </div>
+                    <select class="form-select bb__select">
+                    </select>
+                    <input type="range" class="form-control-range bb__range" min="0.01" max="1.0" step="0.01" value="0.08" style="width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5 mb-3">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <small class="bb__footer"><a href="https://beyondlabs.pl" target="_blank" style="color: #fff;text-decoration: none;font-weight: bold;">BeyondLabs</a> x Twitch Chat on YouTube<br>&copy; 2020-2021</small>
+            </div>
+        </div>
+    </div>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/beyondlabs.js"></script>
+</body>
+
+</html>

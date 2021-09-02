@@ -1,0 +1,223 @@
+#view-selector {
+    display: none;
+}
+
+yt-live-chat-header-renderer.style-scope.yt-live-chat-renderer {
+    background-color: #18181B;
+}
+
+yt-live-chat-header-renderer {
+    height: 64px !important;
+}
+
+div#primary-content.style-scope.yt-live-chat-header-renderer {
+    color: white;
+    padding-top: 12.5px;
+    font-weight: 500;
+    font-size: 20px;
+    height: 37.5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+div#picker-buttons.style-scope.yt-live-chat-message-input-renderer {
+    padding-left: 0px;
+}
+
+div#message-buttons.style-scope.yt-live-chat-message-input-renderer {
+    padding-right: 0px;
+}
+
+#items.style-scope.yt-live-chat-item-list-renderer {
+    padding-left: 10px;
+}
+
+.send-button {
+    display: none;
+}
+
+#show-hide-button {
+    display: none;
+}
+
+.ytd-live-chat-frame :first-child {
+    border: 0px;
+}
+
+#chat {
+    border: 0px;
+}
+
+#card {
+    display: none;
+}
+
+#input-container>yt-live-chat-author-chip>#author-name {
+    display: none;
+}
+
+#live-chat-message-input {
+    background-color: #18181B;
+}
+
+#live-chat-message-input>#container>#top>#input-container>#input {
+    background-color: #464649;
+    min-height: 15px;
+    border-radius: 30px;
+    border: 2px solid #464649;
+    font-size: 15px;
+    margin-left: -30px;
+    margin-right: -14px;
+    visibility: visible;
+}
+
+div#input.style-scope.yt-live-chat-text-input-field-renderer {
+    color: white;
+    z-index: +1;
+    visibility: visible;
+    min-height: 15px;
+    border-radius: 30px;
+    border: 2px solid #464649;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    font-size: 15px;
+}
+
+#input-panel.yt-live-chat-renderer::after {
+    display: none !important;
+}
+
+div#content.style-scope.yt-live-chat-text-message-renderer {
+    padding-left: 18px;
+    font-size: 13.5px;
+}
+
+yt-live-chat-text-message-renderer.style-scope.yt-live-chat-item-list-renderer:hover {
+    border-radius: 5px;
+    background-color: #464649;
+}
+
+label#label.style-scope.yt-live-chat-text-input-field-renderer {
+    color: white;
+    z-index: +2;
+    visibility: visible;
+    pointer-events: none;
+
+}
+
+/*#chat-messages {
+    border: 1px solid #303032;
+}*/
+#chatframe {
+    border: 1px solid #303032;
+}
+
+#live-chat-message-input>#container>#top>#input-container>#input:hover {
+    border: 2px solid #5E5E60;
+}
+
+#live-chat-message-input>#container>#top>#input-container>#input:focus {
+    z-index: +3;
+    border: 2px solid #A970FF;
+    background-color: black;
+}
+
+#underline>#unfocused {
+    display: none;
+}
+
+#underline>#focused {
+    display: none;
+}
+
+#live-chat-message-input {
+    padding-top: 0px;
+}
+
+button.ytp-size-button.ytp-button:active {
+    width: 40px;
+}
+
+yt-live-chat-text-message-renderer>yt-img-shadow>img#img.style-scope.yt-img-shadow,
+div>#top>yt-img-shadow>img#img.style-scope.yt-img-shadow {
+    display: none;
+}
+
+#items>.style-scope.yt-live-chat-item-list-renderer {
+    min-height: 24px;
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+span#author-name.style-scope.yt-live-chat-author-chip {
+    font-weight: bold;
+}
+
+span#message.style-scope.yt-live-chat-text-message-renderer {
+    color: white;
+    word-wrap: break-word;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+div#item-scroller.style-scope.yt-live-chat-item-list-renderer.animated::-webkit-scrollbar {
+    background-color: red;
+    width: 10px;
+}
+
+/* Track */
+div#item-scroller.style-scope.yt-live-chat-item-list-renderer.animated::-webkit-scrollbar-track {
+    background-color: #18181B;
+}
+
+/* Handle */
+div#item-scroller.style-scope.yt-live-chat-item-list-renderer.animated::-webkit-scrollbar-thumb {
+    background: #1B1B1F;
+    border-radius: 5px;
+    border: 1px solid #363639;
+}
+
+/* Handle on hover */
+div#item-scroller.style-scope.yt-live-chat-item-list-renderer.animated::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* XD */
+
+div#menu.style-scope.yt-live-chat-text-message-renderer {
+    margin-right: -10px;
+}
+
+yt-live-chat-text-message-renderer {
+    padding-left: 0px;
+}
+
+div#content.style-scope.yt-live-chat-text-message-renderer>span.style-scope.yt-live-chat-text-message-renderer:not(#message):not(#timestamp):not(#deleted-state):nth-child(2) {
+    display: none !important;
+}
+
+
+yt-live-chat-icon-toggle-button-renderer#emoji.style-scope.yt-live-chat-message-input-renderer,
+yt-live-chat-icon-toggle-button-renderer#emoji.style-scope.yt-live-chat-message-input-renderer:hover,
+yt-live-chat-icon-toggle-button-renderer#product-picker.style-scope.yt-live-chat-message-input-renderer,
+yt-live-chat-icon-toggle-button-renderer#product-picker.style-scope.yt-live-chat-message-input-renderer:hover,
+div#count.style-scope.yt-live-chat-message-input-renderer,
+yt-icon-button#button.style-scope.yt-button-renderer.style-default.size-default,
+span#deleted-state.style-scope.yt-live-chat-text-message-renderer,
+yt-formatted-string#title.style-scope.yt-live-chat-product-picker-renderer,
+div#icon.style-scope.yt-live-chat-product-button-renderer,
+yt-formatted-string.style-scope.yt-live-chat-product-button-renderer,
+div#subtext.style-scope.yt-live-chat-product-button-renderer {
+    color: #999999;
+}
+
+div#contents.style-scope.yt-live-chat-renderer,
+yt-live-chat-ticker-renderer.style-scope.yt-live-chat-renderer {
+    background-color: #18181B;
+}

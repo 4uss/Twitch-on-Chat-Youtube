@@ -1,4 +1,4 @@
-var socket = io.connect('wss://mighty-bayou-11784.herokuapp.com');
+var socket = io.connect('https://mighty-bayou-11784.herokuapp.com/');
 
 const channelsList = [
         {
@@ -38,12 +38,8 @@ const channelsList = [
             "TWITCH" : "vysotzky"
         }, 
         {
-            "CHANNEL_ID": "dejvid", 
-            "TWITCH" : "dejvid"
-        }, 
-        {
-            "CHANNEL_ID": "matixoxoo", 
-            "TWITCH" : "matixoxoo_"
+            "CHANNEL_ID": "ile_lat_ma_xayoo", 
+            "TWITCH" : "ile_lat_ma_xayoo"
         }
     ];
 socket.emit('wedaj');
@@ -52,8 +48,8 @@ socket.on('xd', function(data) {
     JSON.parse(data.streams).follows.map((item, i) => sortChannels(item));
 });
 function sortChannels(data){
-    if(data.STATUS === 1)
-    return document.querySelector(`#${data.CHANNEL_ID}`).classList.add('bb__im__live');
+    console.log(data)
+    if(data.STATUS === 1) return document.querySelector(`#${data.CHANNEL_ID}`).classList.add('bb__im__live');
 }
 channelsList.map((item, i) => checkChannelsStatus(item))
 
@@ -68,6 +64,15 @@ function api(data) {
     option.value = JSON.stringify(data);
     x.add(option);
 }
+function apiSelected(data) {
+    var x = document.querySelector('.bb__select');
+    var option = document.createElement("option");
+    option.text = JSON.parse(data).name+' - Wybrany';
+    option.selected = true;
+    option.disabled = true;
+    option.value = data;
+    x.add(option);
+}
 document.querySelector('.bb__select').addEventListener('input', (event) => {
     document.querySelector('.bb__current__alarm').innerText = JSON.parse(event.target.value).name
     localStorage.setItem('audio-url', event.target.value);
@@ -75,6 +80,7 @@ document.querySelector('.bb__select').addEventListener('input', (event) => {
 document.querySelector('.bb__range').addEventListener('change', (event) => {
     localStorage.setItem('audio-range', event.target.value);
 });
+apiSelected(localStorage.getItem(`audio-url`))
 document.querySelector('.bb__current__alarm').innerText = JSON.parse(localStorage.getItem(`audio-url`)).name;
 if (localStorage.getItem(`status-settings`)) {
     if(localStorage.getItem(`status-settings`) === "true"){
@@ -83,6 +89,15 @@ if (localStorage.getItem(`status-settings`)) {
     }else{
         document.querySelector(`.alerts .bb__switch span[bb-type="button__off"]`).className = "bb__buton_active";
         document.querySelector(`.alerts .bb__switch span[bb-type="button__on"]`).className = "bb__buton";
+    }
+}
+if (localStorage.getItem(`audio-settings`)) {
+    if(localStorage.getItem(`audio-settings`) === "true"){
+        document.querySelector(`.alerts__audio .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
+        document.querySelector(`.alerts__audio .bb__switch span[bb-type="button__on"]`).className = "bb__buton_active";
+    }else{
+        document.querySelector(`.alerts__audio .bb__switch span[bb-type="button__off"]`).className = "bb__buton_active";
+        document.querySelector(`.alerts__audio .bb__switch span[bb-type="button__on"]`).className = "bb__buton";
     }
 }
 
@@ -199,15 +214,15 @@ document.querySelector('#vysotzky .bb__switch span[bb-type="button__on"]').addEv
     document.querySelector(`#vysotzky .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
 });
 
-document.querySelector('#matixoxoo .bb__switch span[bb-type="button__off"]').addEventListener("click", function() {
-    localStorage.setItem('mute-matixoxoo', false)
-    document.querySelector(`#matixoxoo .bb__switch span[bb-type="button__off"]`).className = "bb__buton_active";
-    document.querySelector(`#matixoxoo .bb__switch span[bb-type="button__on"]`).className = "bb__buton";
+document.querySelector('#ile_lat_ma_xayoo .bb__switch span[bb-type="button__off"]').addEventListener("click", function() {
+    localStorage.setItem('mute-ile_lat_ma_xayoo', false)
+    document.querySelector(`#ile_lat_ma_xayoo .bb__switch span[bb-type="button__off"]`).className = "bb__buton_active";
+    document.querySelector(`#ile_lat_ma_xayoo .bb__switch span[bb-type="button__on"]`).className = "bb__buton";
 });
-document.querySelector('#matixoxoo .bb__switch span[bb-type="button__on"]').addEventListener("click", function() {
-    localStorage.setItem('mute-matixoxoo', true)
-    document.querySelector(`#matixoxoo .bb__switch span[bb-type="button__on"]`).className = "bb__buton_active";
-    document.querySelector(`#matixoxoo .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
+document.querySelector('#ile_lat_ma_xayoo .bb__switch span[bb-type="button__on"]').addEventListener("click", function() {
+    localStorage.setItem('mute-ile_lat_ma_xayoo', true)
+    document.querySelector(`#ile_lat_ma_xayoo .bb__switch span[bb-type="button__on"]`).className = "bb__buton_active";
+    document.querySelector(`#ile_lat_ma_xayoo .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
 });
 
 document.querySelector('.alerts .bb__switch span[bb-type="button__off"]').addEventListener("click", function() {

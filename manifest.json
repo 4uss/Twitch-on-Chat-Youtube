@@ -29,5 +29,5 @@
    "manifest_version": 2,
    "name": "Twitch on Chat Youtube",
    "permissions": [ "notifications", "storage", "https://api.twitch.tv/*", "https://api.betterttv.net/*", "https://api.twitchemotes.com/*", "https://cdn.jsdelivr.net/*" ],
-   "version": "1.6"
+   "version": "1.6.0"
 }

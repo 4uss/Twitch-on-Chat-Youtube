@@ -18,7 +18,7 @@ body {
 }
 
 .bb-channel-icon {
-  height: 20px;
+  width: 23px;
 }
 
 .bb-no-p-m {
@@ -71,9 +71,15 @@ body {
   background-color: rgba(0,0,0,0.29);
   cursor: pointer;
 }
-
+.bb__href{
+  text-decoration: none;color: #fff;
+}
+.bb__href:hover{
+  color: #fff;
+}
 .bb__im__live {
-  border: 2px solid red;
+  border: 2px solid #ff00009c;
+  cursor: pointer;
 }
 
 .bb__left {

@@ -1,11 +1,11 @@
-﻿var socket = io.connect('https://mighty-bayou-11784.herokuapp.com');
+﻿var socket = io.connect('https://mighty-bayou-11784.herokuapp.com/');
 // 👇 Liczba kanałów online
 var amountofchannels = 0;
 //Localstorage
 if(!localStorage.getItem('status-settings')){ localStorage.setItem('status-settings', true)};
 if(!localStorage.getItem('audio-settings')){ localStorage.setItem('audio-settings', false)};
-if(!localStorage.getItem('audio-url')){ localStorage.setItem('audio-url', 'http://static.4uss.cyou/project_x/alarm/pupu.mp3')};
-if(!localStorage.getItem('audio-range')){ localStorage.setItem('audio-range', '1')};
+if(!localStorage.getItem('audio-url')){ localStorage.setItem('audio-url', '{"name":"Domyślny","url":"https://cdn.beyondlabs.pl/XI/alarms/default.mp3"}')};
+if(!localStorage.getItem('audio-range')){ localStorage.setItem('audio-range', '0.50')};
 
 socket.on('xd', function(data) {
     logging('countChannels', 'Initializing function');
@@ -37,7 +37,9 @@ socket.on('xd', function(data) {
         // 👇 to odpowiada za wyłączenie dodatku jak coś 
         if(localStorage.getItem('status-settings') === 'false') return;
 
-        if(localStorage.getItem(`mute-${data.channel_id}`) === 'false') return alercik(data.title, data.thumbnail, data.stream);
+        if(data.platform === 'YouTube' && localStorage.getItem(`mute-${data.channel_id}`) === 'true') return alercik(data.title, data.thumbnail, data.stream, 'YouTube', data.ytchannelID);
+
+        if(localStorage.getItem(`mute-${data.channel_id}`) === 'true') return alercik(data.title, data.thumbnail, data.stream);
         
     });
 
@@ -58,13 +60,17 @@ socket.on('xd', function(data) {
 
     // tworzenie powiadomienia
     // z url po kliknięciu
-function alercik(title, thumbnail, stream){
+function alercik(title, thumbnail, stream, platform, ytchannelID){
     var options = {body: title,icon: 'https://cdn.beyondlabs.pl/XI/XI-Chat.png',dir: "ltr",image: thumbnail};
     if (Notification.permission === "granted") {
         var notification = new Notification(`${stream} odpalił stream VisLaud`, options);
         notification.onclick = function(event) {
             event.preventDefault();
-            window.open(`https://www.twitch.tv/${stream}`, '_blank');
+            if(platform === 'YouTube'){
+                window.open(`https://youtube.com/channel/${ytchannelID}/live`, '_blank');
+            }else{
+                window.open(`https://www.twitch.tv/${stream}`, '_blank');
+            }
           }
     } else if (Notification.permission !== 'denied') {
         Notification.requestPermission(function(permission) {
@@ -72,7 +78,11 @@ function alercik(title, thumbnail, stream){
                 var notification = new Notification(`${stream} odpalił stream VisLaud`, options);
                 notification.onclick = function(event) {
                     event.preventDefault();
-                    window.open(`https://www.twitch.tv/${stream}`, '_blank');
+                    if(platform === 'YouTube'){
+                        window.open(`https://youtube.com/channel/${ytchannelID}/live`, '_blank');
+                    }else{
+                        window.open(`https://www.twitch.tv/${stream}`, '_blank');
+                    }
                   }
             }
         });
@@ -80,7 +90,7 @@ function alercik(title, thumbnail, stream){
     if(localStorage.getItem(`audio-settings`) === 'true'){
         document.getElementById("radioPlay").volume = localStorage.getItem(`audio-range`);
 
-        document.querySelector('#radioPlay').src = localStorage.getItem('audio-url');
+        document.querySelector('#radioPlay').src = JSON.parse(localStorage.getItem(`audio-url`)).url;
         document.getElementById("radioPlay").play();
     }
 }
@@ -108,7 +118,7 @@ if(!localStorage.getItem('mute-lukisteve')){ localStorage.setItem('mute-lukistev
 if(!localStorage.getItem('mute-holak')){ localStorage.setItem('mute-holak', true)};
 if(!localStorage.getItem('mute-aki')){ localStorage.setItem('mute-aki', true)};
 if(!localStorage.getItem('mute-vysotzky')){ localStorage.setItem('mute-vysotzky', true)};
-if(!localStorage.getItem('mute-matixoxoo')){ localStorage.setItem('mute-matixoxoo', true)};
+if(!localStorage.getItem('mute-ile_lat_ma_xayoo')){ localStorage.setItem('mute-ile_lat_ma_xayoo', true)};
 
 
 function logging(w, m){

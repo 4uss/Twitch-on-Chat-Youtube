@@ -18,10 +18,6 @@ const channelsList = [
             "TWITCH" : "popo"
         }, 
         {
-            "CHANNEL_ID": "dejvid", 
-            "TWITCH" : "dejvid"
-        }, 
-        {
             "CHANNEL_ID": "lukisteve", 
             "TWITCH" : "lukisteve"
         }, 
@@ -38,8 +34,12 @@ const channelsList = [
             "TWITCH" : "vysotzky"
         }, 
         {
-            "CHANNEL_ID": "ile_lat_ma_xayoo", 
-            "TWITCH" : "ile_lat_ma_xayoo"
+            "CHANNEL_ID": "mlodziutki7", 
+            "TWITCH" : "mlodziutki7"
+        },
+        {
+            "CHANNEL_ID": "dejvid_tibijski_zadymiarz", 
+            "TWITCH" : "dejvid_tibijski_zadymiarz"
         }
     ];
 socket.emit('wedaj');
@@ -159,15 +159,15 @@ document.querySelector('#popo .bb__switch span[bb-type="button__on"]').addEventL
     document.querySelector(`#popo .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
 });
 
-document.querySelector('#dejvid .bb__switch span[bb-type="button__off"]').addEventListener("click", function() {
-    localStorage.setItem('mute-dejvid', false)
-    document.querySelector(`#dejvid .bb__switch span[bb-type="button__off"]`).className = "bb__buton_active";
-    document.querySelector(`#dejvid .bb__switch span[bb-type="button__on"]`).className = "bb__buton";
+document.querySelector('#dejvid_tibijski_zadymiarz .bb__switch span[bb-type="button__off"]').addEventListener("click", function() {
+    localStorage.setItem('mute-dejvid_tibijski_zadymiarz', false)
+    document.querySelector(`#dejvid_tibijski_zadymiarz .bb__switch span[bb-type="button__off"]`).className = "bb__buton_active";
+    document.querySelector(`#dejvid_tibijski_zadymiarz .bb__switch span[bb-type="button__on"]`).className = "bb__buton";
 });
-document.querySelector('#dejvid .bb__switch span[bb-type="button__on"]').addEventListener("click", function() {
-    localStorage.setItem('mute-dejvid', true)
-    document.querySelector(`#dejvid .bb__switch span[bb-type="button__on"]`).className = "bb__buton_active";
-    document.querySelector(`#dejvid .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
+document.querySelector('#dejvid_tibijski_zadymiarz .bb__switch span[bb-type="button__on"]').addEventListener("click", function() {
+    localStorage.setItem('mute-dejvid_tibijski_zadymiarz', true)
+    document.querySelector(`#dejvid_tibijski_zadymiarz .bb__switch span[bb-type="button__on"]`).className = "bb__buton_active";
+    document.querySelector(`#dejvid_tibijski_zadymiarz .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
 });
 
 document.querySelector('#lukisteve .bb__switch span[bb-type="button__off"]').addEventListener("click", function() {
@@ -214,15 +214,15 @@ document.querySelector('#vysotzky .bb__switch span[bb-type="button__on"]').addEv
     document.querySelector(`#vysotzky .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
 });
 
-document.querySelector('#ile_lat_ma_xayoo .bb__switch span[bb-type="button__off"]').addEventListener("click", function() {
-    localStorage.setItem('mute-ile_lat_ma_xayoo', false)
-    document.querySelector(`#ile_lat_ma_xayoo .bb__switch span[bb-type="button__off"]`).className = "bb__buton_active";
-    document.querySelector(`#ile_lat_ma_xayoo .bb__switch span[bb-type="button__on"]`).className = "bb__buton";
+document.querySelector('#mlodziutki7 .bb__switch span[bb-type="button__off"]').addEventListener("click", function() {
+    localStorage.setItem('mute-mlodziutki7', false)
+    document.querySelector(`#mlodziutki7 .bb__switch span[bb-type="button__off"]`).className = "bb__buton_active";
+    document.querySelector(`#mlodziutki7 .bb__switch span[bb-type="button__on"]`).className = "bb__buton";
 });
-document.querySelector('#ile_lat_ma_xayoo .bb__switch span[bb-type="button__on"]').addEventListener("click", function() {
-    localStorage.setItem('mute-ile_lat_ma_xayoo', true)
-    document.querySelector(`#ile_lat_ma_xayoo .bb__switch span[bb-type="button__on"]`).className = "bb__buton_active";
-    document.querySelector(`#ile_lat_ma_xayoo .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
+document.querySelector('#mlodziutki7 .bb__switch span[bb-type="button__on"]').addEventListener("click", function() {
+    localStorage.setItem('mute-mlodziutki7', true)
+    document.querySelector(`#mlodziutki7 .bb__switch span[bb-type="button__on"]`).className = "bb__buton_active";
+    document.querySelector(`#mlodziutki7 .bb__switch span[bb-type="button__off"]`).className = "bb__buton";
 });
 
 document.querySelector('.alerts .bb__switch span[bb-type="button__off"]').addEventListener("click", function() {

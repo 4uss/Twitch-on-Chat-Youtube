@@ -162,10 +162,6 @@ span#message.style-scope.yt-live-chat-text-message-renderer {
     vertical-align: baseline;
 }
 
-body::-webkit-scrollbar {
-    display: none;
-}
-
 div#item-scroller.style-scope.yt-live-chat-item-list-renderer.animated::-webkit-scrollbar {
     background-color: red;
     width: 10px;
@@ -220,4 +216,98 @@ div#subtext.style-scope.yt-live-chat-product-button-renderer {
 div#contents.style-scope.yt-live-chat-renderer,
 yt-live-chat-ticker-renderer.style-scope.yt-live-chat-renderer {
     background-color: #18181B;
+}
+
+/*":" do końca nicku*/
+
+
+yt-live-chat-author-chip.style-scope.yt-live-chat-text-message-renderer::after {
+    content: ":";
+    color: white;
+    font-weight: normal;
+}
+
+/*usuwa podwajanie emotek XD*/
+
+#content>span:nth-child(7) {
+    display: none;
+}
+
+#content>span:nth-child(8) {
+    display: none;
+}
+
+#content>span:nth-child(9) {
+    display: none;
+}
+
+#content>span:nth-child(10) {
+    display: none;
+}
+
+#content>span:nth-child(11) {
+    display: none;
+}
+
+#content>span:nth-child(12) {
+    display: none;
+}
+
+/*!
+ * BetterBrime x Twitch on Chat Youtube
+ * https://betterbri.me/
+ * 
+ * BeyondLabs
+ * https://beyondlabs.pl/
+ */
+ yt-live-chat-author-chip #chat-badges.style-scope.yt-live-chat-author-chip[bb-type="badge"]{
+    display: block !important;
+}
+yt-live-chat-author-chip #chat-badges.style-scope.yt-live-chat-author-chip{
+    display: none !important;
+}
+span[bb-type="verified"] #image{
+    cursor: pointer !important;
+    color: rgb(255,255,255) !important;
+    background: url(https://cdn.frankerfacez.com/static/badges/twitch/2/partner/1/4.png) #FF0000;
+    background-size: 1.8rem !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    border-radius: 0.2rem !important;
+}
+span[bb-type="badge"] yt-live-chat-author-badge-renderer[aria-label="Moderator"] #image{
+    cursor: pointer;
+    color: rgb(255,255,255);
+    background: url(https://cdn.frankerfacez.com/static/badges/twitch/2/moderator/1/4.png) #3EA6FF;
+    background-size: 1.8rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 0.2rem;
+}
+span[bb-type="badge"] img{
+    display: inline !important;
+}
+span[bb-type="verified"] #image, span[bb-type="badge"] #image, span[bb-type="badge"] img{
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0 .5rem 0 0;
+    background-position: center;
+    vertical-align: middle;
+}
+yt-live-chat-author-chip[is-highlighted] #author-name.yt-live-chat-author-chip, yt-live-chat-text-message-renderer[author-is-owner]{
+    background-color: transparent !important;
+    color: var(--yt-live-chat-author-chip-verified-text-color) !important;
+    padding: 0 !important;
+}
+img[bb-type="emote"]{
+    width: 28px !important;
+    height: 28px !important;
+    margin: -1px 2px 1px;
+    vertical-align: middle;
+}
+span[bb-type="emoteSpan"] .emoji.yt-formatted-string.style-scope.yt-live-chat-text-message-renderer{
+    width: var(--yt-live-chat-emoji-size);
+    height: var(--yt-live-chat-emoji-size);
+    margin: -1px 2px 1px;
+    vertical-align: middle;
 }

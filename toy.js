@@ -1,3 +1,130 @@
+let BLchatExist = false;
+
+function beyondLabs(){
+    /*!
+     * BetterBrime x Twitch on Chat Youtube
+     * https://betterbri.me/
+     * 
+     * BeyondLabs
+     * https://beyondlabs.pl/
+     */
+    
+    setInterval(() => {
+        const target = document.querySelector('#item-offset #items.style-scope.yt-live-chat-item-list-renderer');
+    
+        if (target) {
+            if (!BLchatExist || !target.hasAttribute('data-maked-observer')) {
+                console.log("%c0", `
+                line-height: 105px;
+                background-image: url("https://cdn.betterbri.me/betterbrime_full_white.png");
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #141414;
+                border-radius: 15px;
+                margin-left: calc((50% - 150px) - 1ch);
+                padding-left: 150px;
+                color: transparent;
+                padding-right: 150px;
+                `);
+    
+                makeObserver(target)
+                BLchatExist = true;
+                
+                target.setAttribute('data-maked-observer', '1')
+    
+                document.querySelector('yt-live-chat-header-renderer #primary-content').innerHTML = 'Czat';
+            }
+        } else {
+            //logging('chat', "Could not find chat element.")
+            BLchatExist = false
+        }
+    }, 1000)
+    
+    function makeObserver(target) {
+        console.log('Obserwuje chat')
+        const config = {
+            childList: true
+        }
+        const callback = function(mutationsList, observer) {
+            for (let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    mutation.addedNodes.forEach(node => {
+    
+                        /*Array.from(node.querySelectorAll(".message span[class='m__username']")).forEach(img => {
+                            if(img.hasAttribute('bb-antispam')) return;
+    
+                            img.setAttribute('bb-antispam', 1)
+    
+                            for (var i = 0; i < badgeList.length; i++) {
+                                img.innerHTML = img.innerHTML.replace(new RegExp(badgeList[i].nickname + '( |$)', 'g'), `
+                                <span class="bb__badge" data-badge="${badgeList[i].app_metadata.badge_name}"></span> ${badgeList[i].nickname}`);
+                            }
+                        })*/
+                        
+                        Array.from(node.querySelectorAll("div[class='style-scope yt-live-chat-item-list-renderer'] #content.style-scope.yt-live-chat-text-message-renderer yt-live-chat-author-chip")).forEach(img => {
+                            if(img.hasAttribute('bb-antispam')) return;
+    
+                            img.setAttribute('bb-antispam', 1)
+    
+                            if(img.querySelector('#author-name').innerText === 'to nie holak'){
+                                img.innerHTML = `
+    
+                                <span id="chat-badges" class="style-scope yt-live-chat-author-chip" bb-type="badge" style="margin: 0 .3rem 0 0;">
+                                    <img src="https://cdn.beyondlabs.pl/XI/XI-modified.png" class="style-scope yt-live-chat-author-badge-renderer" alt="Developer">
+                                </span>
+    
+                                <span id="chat-badges" class="style-scope yt-live-chat-author-chip" bb-type="badge" style="margin: 0 .3rem 0 0;">
+                                    <img src="${img.querySelector('#chat-badges').querySelector('img').src}" class="style-scope yt-live-chat-author-badge-renderer" alt="Wspierający">
+                                </span>
+        
+                                <span id="chip-badges" class="style-scope yt-live-chat-author-chip" bb-type="verified" style="margin: 0 .3rem 0 0;">
+                                    ${img.querySelector('#chip-badges').innerHTML}
+                                </span>
+        
+                                <span id="author-name" dir="auto" class="moderator style-scope yt-live-chat-author-chip" style="${img.querySelector('#author-name').getAttribute("style")}">
+                                    ${img.querySelector('#author-name').innerText}
+                                </span>`;
+                            }else if(img.querySelector('#chat-badges').querySelector('img')){
+                                img.innerHTML = `
+                                <span id="chat-badges" class="style-scope yt-live-chat-author-chip" bb-type="badge" style="margin: 0 .3rem 0 0;">
+                                    <img src="${img.querySelector('#chat-badges').querySelector('img').src}" class="style-scope yt-live-chat-author-badge-renderer" alt="Wspierający">
+                                </span>
+        
+                                <span id="chip-badges" class="style-scope yt-live-chat-author-chip" bb-type="verified" style="margin: 0 .3rem 0 0;">
+                                    ${img.querySelector('#chip-badges').innerHTML}
+                                </span>
+        
+                                <span id="author-name" dir="auto" class="moderator style-scope yt-live-chat-author-chip" style="${img.querySelector('#author-name').getAttribute("style")}">
+                                    ${img.querySelector('#author-name').innerText}
+                                </span>`;
+                            }else{
+                                img.innerHTML = `
+                                <span id="chat-badges" class="style-scope yt-live-chat-author-chip" bb-type="badge">
+                                    ${img.querySelector('#chat-badges').innerHTML}
+                                </span>
+        
+                                <span id="chip-badges" class="style-scope yt-live-chat-author-chip" bb-type="verified">
+                                    ${img.querySelector('#chip-badges').innerHTML}
+                                </span>
+        
+                                <span id="author-name" dir="auto" class="moderator style-scope yt-live-chat-author-chip" style="${img.querySelector('#author-name').getAttribute("style")}">
+                                    ${img.querySelector('#author-name').innerText}
+                                </span>`;
+                            }
+                        })
+    
+                    })
+                }
+            }
+        }
+        const observer = new MutationObserver(callback)
+        observer.observe(target, config)
+    }
+    }
+beyondLabs()
+
+
 function wtyczkaon(){
     /*
     setTimeout(czek, 2000);
@@ -102,7 +229,8 @@ function wtyczkaon(){
 
     var onTheater = () => {
         // Don't twitchmode if live stream says that chat is disabled
-        if (document.querySelector("iframe#chatframe.style-scope.ytd-live-chat-frame").src=="about:blank") return;
+        /*if (document.querySelector("iframe#chatframe.style-scope.ytd-live-chat-frame").src=="about:blank") return;*/
+        if ($("iframe#chatframe.style-scope.ytd-live-chat-frame").height() < 100 || $("#player-theater-container").height() > 100) return;
 
         document.documentElement.scrollTop = 0;
         adjust();
@@ -217,9 +345,36 @@ function wtyczkaon(){
             }, 5); 
         }
     });
+    // symulacja clicka w unTheater()
+    function clickButton() {
+        if(document.querySelector("ytd-watch-flexy[theater] #player-theater-container.ytd-watch-flexy") !== null && $("iframe#chatframe.style-scope.ytd-live-chat-frame").height() > 100 && $("iframe#chatframe.style-scope.ytd-live-chat-frame").width() > 100){
+            document.querySelector(".ytp-size-button.ytp-button").click();
+        }else{
+            clearInterval(intervalID);
+        }
+    }
+    var intervalID = setInterval(clickButton, 500);
+    chrome.runtime.onMessage.addListener(
+        function(request, sender, sendResponse) {
+          // listen for messages sent from background.js
+          if (request.message === 'hello!') {
+            browser.tabs.reload();
+            function clickButtonn() {
+                if(document.querySelector("ytd-watch-flexy[theater] #player-theater-container.ytd-watch-flexy") !== null && $("iframe#chatframe.style-scope.ytd-live-chat-frame").height() > 100 && $("iframe#chatframe.style-scope.ytd-live-chat-frame").width() > 100){
+                    document.querySelector(".ytp-size-button.ytp-button").click();
+                }else{
+                    clearInterval(intervalIDD);
+                }
+            }
+            var intervalIDD = setInterval(clickButtonn, 500);
+          }
+      });
+    // koniec symulacji
     try{
         if (document.querySelector("div#message.style-scope.yt-live-chat-restricted-participation-renderer").innerHTML=="Tryb tylko dla subskrybentów"){
+            /*
             document.getElementsByClassName("style-scope yt-live-chat-header-renderer")[0].innerText+="Czat";
+            */
         }else{
             document.querySelector("div#input-panel.style-scope.yt-live-chat-renderer.iron-selected").style.marginTop = "-18px";
         }
@@ -228,7 +383,9 @@ function wtyczkaon(){
         document.querySelector("div#input-panel.style-scope.yt-live-chat-renderer.iron-selected").style.marginTop = "-18px";
     }
     document.querySelector("div#input.style-scope.yt-live-chat-text-input-field-renderer").tabIndex="1";
+    /*
     document.getElementsByClassName("style-scope yt-live-chat-header-renderer")[0].innerText+="Czat";
+    */
     document.getElementsByClassName("style-scope yt-live-chat-text-input-field-renderer")[0].innerHTML="Wyślij wiadomość";
     document.getElementsByClassName("style-scope yt-live-chat-text-input-field-renderer")[0].style.paddingLeft="20px";
     document.getElementsByClassName("style-scope yt-live-chat-text-input-field-renderer")[0].style.paddingTop="11.5px";
@@ -237,23 +394,3 @@ function wtyczkaon(){
     document.getElementsByClassName("style-scope yt-live-chat-item-list-renderer animated")[0].style.backgroundColor="#18181B";
 }
 wtyczkaon();
-function theateroff(){
-    $("#masthead-container").show();
-    $("#related").show();
-    $("#primary").show();
-    $("html").css("overflow", "inherit");
-    $("#page-manager").css("margin-top", "");
-    $("#player-theater-container").css({
-        "width": "",
-        "height": "",
-        "max-height": "",
-    });
-    $("#chatframe").css({
-        "height": "",
-        "width": "",
-        "position": "relative",
-        "border": "0",
-        "border": "1px solid #303032"
-    });
-}
-theateroff();

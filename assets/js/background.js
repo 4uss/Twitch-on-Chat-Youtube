@@ -1,10 +1,25 @@
-﻿var socket = io.connect('https://mighty-bayou-11784.herokuapp.com/');
+﻿//NIE TYKAĆ toy.js 229
+chrome.tabs.onUpdated.addListener(
+    function(tabId, changeInfo, tab) {
+      // read changeInfo data and do something with it
+      // like send the new url to contentscripts.js
+      if (changeInfo.url) {
+        chrome.tabs.sendMessage( tabId, {
+          message: 'hello!',
+          url: changeInfo.url
+        })
+      }
+    }
+  );
+// KONIEC
+
+var socket = io.connect('https://mighty-bayou-11784.herokuapp.com/');
 // 👇 Liczba kanałów online
 var amountofchannels = 0;
 //Localstorage
 if(!localStorage.getItem('status-settings')){ localStorage.setItem('status-settings', true)};
 if(!localStorage.getItem('audio-settings')){ localStorage.setItem('audio-settings', false)};
-if(!localStorage.getItem('audio-url')){ localStorage.setItem('audio-url', '{"name":"Domyślny","url":"https://cdn.beyondlabs.pl/XI/alarms/default.mp3"}')};
+if(!localStorage.getItem('audio-url')){ localStorage.setItem('audio-url', '{"name":"Domyślny","url":"https://xayooindustries.us/alarms/default.mp3"}')};
 if(!localStorage.getItem('audio-range')){ localStorage.setItem('audio-range', '0.50')};
 
 socket.on('xd', function(data) {
@@ -36,7 +51,7 @@ socket.on('xd', function(data) {
 
         // 👇 to odpowiada za wyłączenie dodatku jak coś 
         if(localStorage.getItem('status-settings') === 'false') return;
-
+        
         if(data.platform === 'YouTube' && localStorage.getItem(`mute-${data.channel_id}`) === 'true') return alercik(data.title, data.thumbnail, data.stream, 'YouTube', data.ytchannelID);
 
         if(localStorage.getItem(`mute-${data.channel_id}`) === 'true') return alercik(data.title, data.thumbnail, data.stream);
@@ -118,7 +133,9 @@ if(!localStorage.getItem('mute-lukisteve')){ localStorage.setItem('mute-lukistev
 if(!localStorage.getItem('mute-holak')){ localStorage.setItem('mute-holak', true)};
 if(!localStorage.getItem('mute-aki')){ localStorage.setItem('mute-aki', true)};
 if(!localStorage.getItem('mute-vysotzky')){ localStorage.setItem('mute-vysotzky', true)};
-if(!localStorage.getItem('mute-ile_lat_ma_xayoo')){ localStorage.setItem('mute-ile_lat_ma_xayoo', true)};
+if(!localStorage.getItem('mute-mlodziutki7')){ localStorage.setItem('mute-mlodziutki7', true)};
+if(!localStorage.getItem('mute-dejvid_tibijski_zadymiarz')){ localStorage.setItem('mute-dejvid_tibijski_zadymiarz', true)};
+
 
 
 function logging(w, m){
